@@ -1,17 +1,17 @@
-//
-//  MoneyPowerGloryApp.swift
-//  MoneyPowerGlory
-//
-//  Created by Yapı Kredi Teknoloji A.Ş. on 11.11.2023.
-//
-
 import SwiftUI
+import FirebaseCore
 
 @main
 struct MoneyPowerGloryApp: App {
+    @StateObject private var viewModel = ViewModel()
+    
+    init(){
+        FirebaseApp.configure()
+    }
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(viewModel)
         }
     }
 }
